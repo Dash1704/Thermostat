@@ -11,5 +11,9 @@ class Thermostat {
   up() {
     return this.defaultTemperature += 1
   }
+
+  down() {
+    return this.defaultTemperature -= 1
+  }
 }
 module.exports = Thermostat
