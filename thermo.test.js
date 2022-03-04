@@ -76,5 +76,29 @@ describe(Thermostat, () => {
       expect(thermostat.getTemperature()).toBe(20)
     });
   });
+
+  describe('energyUsage', () => {
+    let thermostat = new Thermostat
+
+    it('should say if its low usage', () => {
+      expect(thermostat.energyUsage()).toBe('medium-usage')
+    })
+
+    it('should say low-usage', () => {
+      thermostat.down()
+      thermostat.down()
+      thermostat.down()
+      expect(thermostat.energyUsage()).toBe('low-usage')
+    });
+    
+    it('should say high-usage', () => {
+      for (let i = 0; i < 30; i++) {
+        thermostat.up();
+      };
+      expect(thermostat.energyUsage()).toBe('high-usage')
+    });
+
+
+  });
   
 });

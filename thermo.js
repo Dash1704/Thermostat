@@ -38,6 +38,13 @@ class Thermostat {
     this.defaultTemperature = 20
   }
 
+  energyUsage(){
+    if (this.defaultTemperature < 18){
+      return 'low-usage'}
+    else if(this.defaultTemperature <= 25){
+      return 'medium-usage'}
+    else {return 'high-usage'}  
+  }
 };
 
 
