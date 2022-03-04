@@ -56,6 +56,14 @@ describe(Thermostat, () => {
       };
       expect(thermostat.getTemperature()).toBe (25);
     });
+
+    it('should set max temp 35 if powersaving off', () => {
+      thermostat.setPowerSavingMode(false)
+      for (let i = 0; i < 30; i++) {
+        thermostat.up();
+      };
+      expect(thermostat.getTemperature()).toBe (32);
+    });
   });  
 
 

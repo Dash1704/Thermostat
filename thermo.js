@@ -4,12 +4,16 @@ class Thermostat {
     this.defaultTemperature = 20
     this.maxiumTemperature = 25
     this.minimumTemperature = 10
+    this.maxTempPowerSavingOff = 32
     this.powerSavingMode = true
   }
 
   getTemperature(){
     if (this.powerSavingMode === true && this.defaultTemperature > 25){
       return this.maxiumTemperature
+    }
+    else if(this.powerSavingMode === false && this.defaultTemperature > 32){
+      return this.maxTempPowerSavingOff
     }
     else if (this.defaultTemperature < 10) {
       return this.minimumTemperature
