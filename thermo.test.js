@@ -49,7 +49,16 @@ describe(Thermostat, () => {
       };
       expect(thermostat.getTemperature()).toBe (25);
     });
+  });  
 
+  describe('reset', () => {
+    let thermostat = new Thermostat
 
+    it('should set the temperature back to 20', () => {
+      thermostat.up()
+      thermostat.reset()
+      expect(thermostat.getTemperature()).toBe(20)
+    });
   });
+  
 });
