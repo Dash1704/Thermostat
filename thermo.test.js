@@ -28,6 +28,13 @@ describe(Thermostat, () => {
       thermostat.down()
       expect(thermostat.getTemperature()).toEqual(19)
     });
+
+    it('should not go below 10', () => {
+      for (let i = 0; i < 15; i++) {
+        thermostat.down()
+      };
+      expect(thermostat.getTemperature()).toBe(10)
+    });
   });
 
   describe('setPowerSavingMode true', () => {
@@ -50,6 +57,7 @@ describe(Thermostat, () => {
       expect(thermostat.getTemperature()).toBe (25);
     });
   });  
+
 
   describe('reset', () => {
     let thermostat = new Thermostat
